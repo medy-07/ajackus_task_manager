@@ -1,0 +1,1 @@
+class PermanentError < StandardError; end

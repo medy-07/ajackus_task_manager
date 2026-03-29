@@ -1,0 +1,1 @@
+class DataCorruptionError < StandardError; end

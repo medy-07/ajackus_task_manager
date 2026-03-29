@@ -1,0 +1,1 @@
+class TransientError < StandardError; end
