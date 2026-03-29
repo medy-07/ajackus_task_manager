@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+echo "==> Preparing test database..."
+docker compose exec -e RAILS_ENV=test app bundle exec rails db:create db:migrate 2>/dev/null || \
+  docker compose exec -e RAILS_ENV=test app bundle exec rails db:migrate
+
+echo "==> Running RSpec..."
+docker compose exec -e RAILS_ENV=test app bundle exec rspec "$@"
